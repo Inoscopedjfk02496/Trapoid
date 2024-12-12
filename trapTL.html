@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Trapoid Remastered</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&family=Seymour+One&display=swap" rel="stylesheet">
+
+  <audio id="aTTheme1" src="https://www.pacdv.com/sounds/free-music/solution.mp3"></audio>
+  <audio id="aBTheme1" src="https://www.pacdv.com/sounds/free-music/kickstarter.mp3"></audio>
+  <audio id="aBTheme2" src="https://www.pacdv.com/sounds/free-music/techno-dog.mp3"></audio>
+  <audio id="aBTheme3" src="https://www.pacdv.com/sounds/free-music/glow-in-the-dark.mp3"></audio>
+
+  <audio id="aSwipe" src="https://www.pacdv.com/sounds/mechanical_sound_effects/tape-measure-1.wav"></audio>
+  <audio id="aGSwipe" src="http://media.april.org/audio/wesnoth/core_sounds/dagger-swish.wav"></audio>
+  <audio id="aPunch" src="https://www.pacdv.com/sounds/miscellaneous_sounds/bottle_pop_2.wav"></audio>
+  <audio id="aMist" src="https://www.pacdv.com/sounds/miscellaneous_sounds/paper_tearing_2.wav"></audio>
+  <audio id="aGun" src="https://www.pacdv.com/sounds/mechanical_sound_effects/dropping-3.wav"></audio>
+  <audio id="aHeal" src="https://www.pacdv.com/sounds/interface_sound_effects/sound28.mp3"></audio>
+  <audio id="aAngle" src="https://www.pacdv.com/sounds/domestic_sound_effects/door-close-11.mp3"></audio>
+
+  <audio id="aPush" src="https://www.pacdv.com/sounds/miscellaneous_sounds/striking-a-match-1.wav"></audio>
+  <audio id="aBroke" src="https://www.pacdv.com/sounds/mechanical_sound_effects/glass_breaking_1.wav"></audio>
+  <audio id="aYouch" src="https://www.pacdv.com/sounds/interface_sound_effects/sound110.wav"></audio>
+  <audio id="aP2Now" src="https://www.pacdv.com/sounds/mechanical_sound_effects/bang_6.wav"></audio>
+  <audio id="aUnlock" src="https://www.pacdv.com/sounds/mechanical_sound_effects/coin_3.wav"></audio>
+  <audio id="aGiga" src="https://www.pacdv.com/sounds/mechanical_sound_effects/camera-click-1.wav"></audio>
+  <audio id="aLoaded" src="https://www.pacdv.com/sounds/mechanical_sound_effects/gun-reload-1.wav"></audio>
+  <audio id="aBoke" src="https://www.pacdv.com/sounds/miscellaneous_sounds/magic-wand-1.wav"></audio>
+</head>
+<body>
+ <div id='container' class="hidden">
+    <div class="box">
+      <div class="wrapper" id="machine1">
+        <ul>
+          <li class='cred'></li>
+          <li class='cred'></li>
+          <li class='cred'>Trapoid<br>Remastered</li>
+          <li class='cred'>Lead Programer<br>Allen Basilio</li>
+          <li class='cred'>Extra Programer<br>Dylan Emerson</li>
+          <li class='cred'>Art and Sprites<br>Allen Basilio</li>
+          <li class='cred'>Sounds and Music Brought by<br>PacDV Free Sounds</li>
+          <li class='cred'>Menu Screen Theme<br>Solution</li>
+          <li class='cred'>Phase 1 Theme<br>Techno Dog</li>
+          <li class='cred'>Phase 2 Theme<br>Kickstarter</li>
+          <li class='cred'>Secret Boss Theme<br>Glow in the Dark</li>
+          <li class='cred'>And thanks to You for playing Trapoid<br>But there's still more to do...</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div id="background"></div> 
+  <button id="hint3" class="hint">Click this and then increase bumpscocity once more.</button>
+
+  <div id="title" class="hidde holder">
+    <p id="hint2" class="hint">Use the Heal and make it to Pissed Trapoid.</p>
+    <h4 id="patch" class="patch">Patch 1.2.2 PIT Works © 2024</h4>
+    <div id="titleCard">
+      <h1 id="bigWord">Trapoid</h1>
+      <h2 id="smBigWord">Remastered</h2>   
+      <button id="toHub" value="toHub" class="toZone" type="image">Continue</button>
+      <div id="hubLine"></div>
+    </div>
+  </div>
+
+  <div id="hub" class="hidden holder">
+    <div id="menuBar">
+      <button id="toTrapoid" value="toTrapoid" class="toZone menuButt" type="image">Challenge Trapoid</button><br>
+      <button id="toTrigon" value="toTrigon" class="toZone menuButt hidden" type="image">Fight Trigon Trapoid</button><br>
+      <button id="toIvy" value="toIvy" class="toZone menuButt hidden" type="image">Let's Bloody Rock</button><br>
+      <button id="newGame" class="menuButt hidden">Enter NewGame+</button>
+      <button id="equipment" value="loadout" class="menuButt pop">Equipment</button><br>
+      <button id="settings" value="setting" class="menuButt pop">Settings</button>
+      <button id="patchNotes" value="patchy" class="menuButt pop">Patch Notes</button>
+      <button id="clearCook" class="menuButt">Reset Progress</button>
+      
+      <div id="loadout" class="popUp">
+        <div id="eDescription">A range blast deal low damage that increases every shot.</div>
+        <div id="eWeapon" class="equHold">
+          <div id="eWpn" class="picked">Current__Weapon: Sword</div>
+          <button id="eSword" value="wpn0" class="equip wpn" type="image">Sword</button>
+          <button id="eSpear" value="wpn1" class="equip wpn locked" type="image">Spear</button>
+          <button id="eGSword" value="wpn2" class="equip wpn locked" type="image">Great Sword</button>
+          <button id="eFist" value="wpn3" class="equip wpn locked" type="image">Fist</button>
+          <button id="eWand" value="wpn4" class="equip wpn locked" type="image">Wand</button>
+          <button id="eDagg" value="wpn5" class="equip wpn locked" type="image">Elegant Dagger</button>
+          <button id="eHatch" value="wpn6" class="equip wpn locked" type="image">Hatchet</button>
+        </div>
+
+        <div id="eSpecial" class="equHold">
+          <div id="eSpc" class="picked">Current____Spell: TR 16</div>
+          <button id="eGun" value="spc0" class="equip spc" type="image">TR 16</button>
+          <button id="eMist" value="spc1" class="equip spc locked" type="image">Poison Mist</button>
+          <button id="eHeal" value="spc2" class="equip spc locked" type="image">Heal</button>
+          <button id="eBGun" value="spc3" class="equip spc locked" type="image">Blood Pistol</button>
+          <button id="eAuRp" value="spc4" class="equip spc locked" type="image">Auto Ripper</button> 
+          <button id="eCann" value="spc5" class="equip spc locked" type="image">Angular Cannon</button>   
+        </div>
+
+        <div id="eItem" class="equHold">
+          <div id="eItm" class="picked">Current_____Item: None</div>
+          <button id="iCA" value="itm0" class="equip itm locked" type="image">Cardboard Armor</button>
+          <button id="iSA" value="itm1" class="equip itm locked" type="image">Smoking Addiction</button>
+          <button id="iAS" value="itm2" class="equip itm locked" type="image">Arm Stretcher</button>
+          <button id="iTDD" value="itm3" class="equip itm locked" type="image">The Dark Dog</button>
+          <button id="iB" value="itm4" class="equip itm locked" type="image">Bumpscocity</button>
+          <button id="iLB" value="itm5" class="equip itm locked" type="image">Light Bulb</button>
+          <button id="iMS" value="itm6" class="equip itm locked" type="image">Magic Shield</button>
+          <button id="iHW" value="itm7" class="equip itm locked" type="image">Magnet</button>
+          <button id="iPB" value="itm8" class="equip itm locked" type="image">Pink Bandaid</button>
+          <button id="iME" value="itm9" class="equip itm locked" type="image">Manuel Engine</button>
+          <button id="iD2" value="itm10" class="equip itm locked" type="image">D20</button>
+          <button id="iAA" value="itm11" class="equip itm locked" type="image">Atom Aligner</button>
+          <button id="iB2" value="itm12" class="equip itm locked" type="image">Bumprocity</button>
+          <button id="iN" value="itm13" class="picked equip itm " type="image">None</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="setting" class="popUp hidden">
+      <label for="sxf"> Sound Volume</label>
+      <input id="sxf" type="range" min="0" max="100" value="100"><br>
+      <label for="music"> Music Volume</label>
+      <input id="music" type="range" min="0" max="100" value="100"><br>
+      <label for="partics"> Particles</label>
+      <input id="partics" type="checkbox" checked><br>
+      <label for="muted"> Bumpscocity</label>
+      <input id="upBump" type="range" min="0" max="100" value="0">
+      <p id="hint1" class="hint">There is something on the title screen</p>
+      <p id="playTime">Playtime: 00:00:00</p>
+    </div>
+
+    <div id="patchy" class="popUp hidden">
+      <div id="notes">
+        <p>12/6/23 patch 1.0 release </p>
+        <p>12/8/23 patch 1.0.1 hot fix, Updated the settings menu, add sound sliders, added patch notes, Perfetto now has a tile, <u>Bug Fixes</u>: you can no longer play the game one the title screen (this fixed music and gameplay bugs), Mist is generally more function and does more than 1 damage, improve magnet control, Perfetto will no longer blindly swing.</p>
+        <p>12/14/23 patch 1.1 balance patch, Light Bulb (buff)- Give you -HP, remove the nerf(used to give a buff at max health and a debuff after getting hit), Spear (buff)- from 2 to 3 dmg, Magnet (buff)- Gives Iframes at max fp and now can be used during stationary actions, Great Sword (nerf)- from 10 to 7 dmg, working stationary swings, Arm Stretcher (nerf)- -3SB, Blood Pistol (nerf)- unlocking blood pistol now takes 100 shots from 50,Heal (both)- +5DMG buff after finishing for 6 seconds, You can't move while healing, <u>Bug Fixes</u>: Blood Pistol damage now resets, the invisble death ball is removed, mist attacks no longer linger, no more dying in phase transitions or credits, Light bulb now remove the SB buff after breaking.</p>
+        <p>12/18/23 patch 1.1.1 touch up, added save data, added reset save button, colored bumpscocity text, fixed some grammar mistakes, revamped gun animation, <u>Bug Fixes</u>: all menus close on death now, one of Ivy's lines of dialouge added back in.</p>
+        <p>2/8/24 patch 1.1.2 controls?, added a controls image, colored the menu buttons and made it fit properly, adjusted Sword and TR 16 descriptions, <u>Bug Fixes</u>: No, this is a perfect game.</p>
+        <p>11/6/24 patch 1.2 Perfetto DLC, updated Perfetto moveset, refractored the code to be smaller, nerfed damage Perfetto takes from gas from 9-3 per tick, new menu image can show, added New Game+, Blood Pistol- red color and updated text, Smoking Addiction(buff)- -1HP from -2 and now can be obtained before phase 2, Arm Stretcher(buff)- -1HP from -2 no longer nerfs SB and now gives -1FPS, The Dark Dog(buff)- +3SB from 2 and +4FPS from 3, Light Bulb(buff)- +4SB from 3, Great Sword(buff)- 8 damage from 7,TR 16(buff)- 5.5 damage from 4 and 8 cost from 9, added Wand, Elegant Dagger, Hatchet, Auto Ripper, Angular Cannon, Pink Bandaid, Manuel Engine, D20, Atom Aligner, and Bumprocity<u>Bug Fixes</u>: changing the sound no longer soft locks, other bosses now stay with cookies, every special no longer is set to 1 damage after death</p>
+        <p>11/13/24 patch 1.2.1 hot fix, added playtime number, <u>Bug Fixes</u>: Poison mist is no longer free</p>
+        <p>11/14/24 patch 1.2.2 quality touches, added damage particles, added particle setting, equipment boxes now specify type of equipment, weapons specials and items now have different background colors, made player combo border bigger <u>Bug Fixes</u>: Trapoid no longer push spams after fighting Perfetto</p>
+      </div>
+    </div>
+    <img id="menuImg">
+  </div>
+
+  <div id="arena" class="hidden holder">
+    <img id="controls" src="https://i.imgur.com/ckghEWn.png" alt="">
+    <div id="hpGone" class="hpGone">
+      <div id="hp" class="bar"></div>
+    </div>
+    <div id="fpGone" class="hpGone">
+      <div id="fp" class="bar"></div>
+    </div>
+    <div id="bHPGone" class="hpGone"> 
+      <div id="bHP" class="bar"></div>
+      <p id="nametag">Trapoid</p>
+    </div>
+
+    <div id="pTile" class="tile hidden"></div>
+    <div id="field"></div>
+
+    <button id="next" class="hidden">next</button>
+    <div id="dialouge" class="hidden">Hmm? What business have you here, Perdente? I do hope you didn't forget the contract we made. Or your reputation out there. They all still despise you.</div>
+
+    <div id="p" class="player">
+      <img id="pAtk" class="hidden" src="https://i.imgur.com/uoVomzP.png">
+    </div>
+    <div id="trapoid" class="floating boss">
+      <div id="eye1" class="eye"></div>
+      <div id="eye2" class="eye"></div>
+      <div id="pTele"></div>
+      <div id="brow"></div>
+    </div>
+    <div id="per" class="player boss hidden">
+      <img id="tAtk" src="https://i.imgur.com/QW9K3qg.png">
+    </div>
+    <img id="Ivy" src="https://i.imgur.com/7LLZcIS.png">
+
+    <div id="bAttacks">
+      <div id="stab1" class="attack stab stabTop"></div>
+      <div id="stab2" class="attack stab stabTop"></div>
+      <div id="stab3" class="attack stab stabTop"></div>
+      <div id="stab4" class="attack stab stabTop"></div>
+      <div id="ball1" class="attack pincerL circ">1</div>
+      <div id="ball2" class="attack pincerL circ">2</div>
+      <div id="ball3" class="attack pincerL circ">3</div>
+      <div id="ball4" class="attack pincerR circ">4</div>
+      <div id="ball5" class="attack pincerR circ">5</div>
+      <div id="push" class="attack">
+        <div id="pushT"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="lText">sword</div>
+</body>
+</html>
