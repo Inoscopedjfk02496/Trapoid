@@ -1,0 +1,647 @@
+.tile {
+  color: white;
+  box-sizing: border-box;
+  float: left;
+  width: 65px; height: 45px;
+  border: solid 1px #000;
+  background: #334;
+}
+
+.gas {
+  width: 195px; height: 135px;
+  opacity: 0.5;
+  position: absolute;
+  z-index: 1;
+  border-radius: 50%;
+}
+
+.mist0 {
+  background: purple;
+}
+
+.mist1 {
+  background: #cd7;
+}
+
+.shot {
+  width: 1px; height: 75px;
+  border-radius: 50%;
+  position: absolute;
+  border-left: 9px solid transparent; border-right: 9px solid transparent;
+  z-index: 2;
+  animation: gun 0.3s 1 forwards;
+  
+}
+
+.pShot {
+  left: 15px; bottom: 50px;
+}
+
+.perShot {
+  box-shadow: 0px -20px 6px white;
+  top: -140px;
+  transform-origin: 0px 100%;
+  border-top: 100px solid #fff;
+  transform: rotate(180deg);
+}
+
+.blood0 {
+  box-shadow: 0px -20px 6px white;
+  border-top: 100px solid #fff;
+}
+
+.blood1 {
+  box-shadow: 0px -20px 6px #d25;
+  border-top: 100px solid #d25;
+}
+
+.blood2 {
+  box-shadow: 0px -20px 6px #fc7;
+  border-top: 100px solid #fff;
+}
+
+.blood3 {
+  width: 1px; height: 75px;
+  border-left: 90px solid transparent; border-right: 90px solid transparent;
+  z-index: 2;
+  animation: gun 1s 1 forwards;
+  box-shadow: 0px -20px 6px #25d;
+  border-top: 100px solid #fefc;
+}
+
+.clickable, .toZone, .menuButt, .equip {
+  cursor: pointer;
+}
+
+.menuButt {
+  margin-top: 5.5vh;
+  font-size: 4vh;
+  width: 80%;
+  background: #cdd; color: #31a;
+  border: solid;
+  transition: width 0.15s, font-size 0.15s;
+}
+
+.menuButt:hover {
+  font-size: 5vh;
+  width: 90%;
+}
+
+.popUp {
+  background: linear-gradient(180deg, #63a, #426 88%);
+  width: 600px; height: 400px;
+  position: absolute;
+  top: 50px; left: 500px;
+  z-index: 2;
+  border: 2px solid; border-radius: 13px;
+  text-align: left;
+  color: #def;
+}
+
+.equHold {
+  margin-left: 150px;
+}
+
+.picked {
+  position: absolute;
+  width: 130px; height: 70px;
+  margin-top: 4px;
+  left: 10px;
+  color: #def;
+  border: solid;
+  background: #121;
+}
+
+.equip {
+  width: 105px; height: 45px;
+  font-size: 15px;
+  margin-top: 2px; margin-bottom: 2px;
+  border: solid #241;
+}
+
+.wpn {
+  color: #def;
+  background: #731;
+}
+
+.spc {
+  color: #def;
+  background: #632;
+}
+
+.itm {
+  color: #def;
+  background: #521;
+}
+
+.equip:hover {
+  border-color: #def;
+}
+
+.locked {
+  background: #210;
+  color: #666;
+}
+
+.load {
+  cursor: pointer;
+  height: 80px;
+  width: 200px;
+  border: 4px solid;
+  background: white;
+}
+
+.hurt {
+  border-color: red;
+  filter: blur(3px);
+}
+
+.eye {
+  width: 18px;
+  height: 18px;
+  background: #cfd;/*cfd*/
+  border: 2px black solid;
+  position: absolute;
+  bottom: 60px;
+}
+
+.player {
+  background: #fc7;
+  border-radius: 50%;
+  border: 1px transparent solid;
+  width: 45px; height: 50px;
+  position: absolute;
+}
+
+.hpGone {
+  width: 120px; height: 25px;
+  background: #222;
+  position: fixed;
+  z-index: 10;
+  top: 10px;
+  border: solid #ccc;
+}
+
+.bar {
+  width: 100%; height: 100%;
+  background: linear-gradient(180deg, #39f, #47e);
+}
+
+.parBoss {
+  width: 25px; height: 25px;
+  bottom: 40px;
+  left: 30%;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.stab {
+  position: absolute;
+  left: 12px; top: 75px;
+  border-left: 20px solid transparent; border-right: 20px solid transparent;
+  border-top: 75px solid #d45;
+  z-index: 2;
+}
+
+.stabTop {
+  animation: stabTop 1.25s forwards 1;
+}
+
+.stabBottom {
+  animation: stabBottom 1s forwards 1;
+}
+
+.pincerL {
+  left: -56px; top: 5px;
+}
+
+.pincerR {
+  left: 332px; top: 50px;
+}
+
+.circ {
+  position: absolute;
+  width: 50px; height: 35px;
+  border-radius: 50%;
+  background: #db2;
+  animation: none 2s forwards 1;
+}
+
+.box {
+  border-radius: 25px;
+  overflow: hidden;
+  width: 100%; height: 300%;
+}
+.box .wrapper {
+  position: relative;
+}
+.box ul {
+  padding: 0px;
+}
+.box li {
+  background: #000;
+  color: #def;
+  width: 100%; height: 300px;
+  text-align: center;
+  font-size: 50px;
+}
+
+.hint {
+  color: #fc7;
+  font-size: 20px;
+}
+
+/*--------------Stand Alone Elements--------------*/
+
+#background {
+  position: fixed;
+  left: 0px; top: 0px;
+  width: 100%; height: 100vh;
+  z-index: -2;
+  animation: none 5s 1;
+  background: linear-gradient(0deg, #68b, #589);
+}
+
+/*------------------Title Screen------------------*/
+
+#patch {
+  position:absolute;
+  bottom: 0px;
+  color: #f47;
+}
+
+#titleCard {
+  color: #efefef;
+  position: fixed;
+  left: 50%; top: 10%;
+  text-align: center;
+  transform: translate(-50%,20%);
+  animation: none 1s infinite;
+}
+
+#bigWord {
+  line-height: 0;
+  transform: scaley(1.5);
+  font-size: 100px;
+  font-variant: small-caps;
+  font-family: 'Seymour One', sans-serif;
+}
+
+#smBigWord {
+  line-height: 0.7;
+  font-size: 40px;
+  font-variant: small-caps;
+  font-family: 'Playfair Display', serif;
+}
+
+#toHub {
+  font-size: 30px;
+  margin-top: 32px;
+  color:white; background: none;
+  border: none;
+}
+
+#hubLine {
+  top: -2px; left: 50%;
+  z-index: -1;
+  position: absolute;
+  border-left: 5px solid transparent; border-right: 5px solid transparent;
+  border-top: 250px solid;border-bottom: 250px solid;
+  transform: rotate(90deg);
+}
+
+/*--------------------Main Hub--------------------*/
+
+#menuBar {
+  position: fixed;
+  left: 0px; top: 0px;
+  background: linear-gradient(0deg, #59b, #9cd 54%);
+  border: solid 1vh blue;
+  width: 400px; height: 98vh;
+  text-align: center;
+}
+
+#menuImg {
+  position: absolute;
+  left: 50%; top: 20%;
+  width: 300px;
+  z-index: -1;
+}
+
+#loadout {
+  overflow:auto;
+  background: linear-gradient(180deg, #4a5, #264 88%);
+}
+
+#eDescription {
+  width: 600px; height: 59px;
+  background: linear-gradient(180deg, #e35, #902 88%);
+  font-weight: bold;
+  border: solid black;
+  position: fixed;
+  z-index: 1;
+}
+
+#eWeapon {
+  margin-top: 80px;
+}
+
+#iN {
+  left: 25px;
+}
+
+#setting {
+  font-size: 30px;
+  line-height: 50px;
+}
+
+#patchy {
+  text-indent: 25px;
+  overflow:auto;
+  background: linear-gradient(180deg, #36a, #246 88%);
+}
+
+#clearCook {
+  border: red solid;
+  color: #d47;
+  background: #512;
+}
+/*----------------Main Battle Field----------------*/
+
+#arena {
+  width: 325px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%,0);
+  margin-top: 220px;
+}
+
+#controls {
+  width: 300px;
+  left: -350px; top: -150px;
+  position: absolute;
+}
+
+#hpGone {
+  right: -130px;
+  color: white;
+}
+
+#fpGone {
+  right: -130px; top: 50px;
+  border-radius: 50%;
+  width: 100px; height: 100px;
+  background: radial-gradient(circle, #59b, #9cd 54%);
+}
+
+#fp {
+  border-radius: 50%;
+  width: 100%;
+  transform: scale(100%);
+  clip-path: circle(50%);
+  background: #222;
+}
+
+#bHPGone {
+  position: fixed;
+  left: 50%; bottom: 40%;
+  transform: translate(-50%, 750%);
+  width: 550px;
+}
+
+#bHP {
+  background: linear-gradient(180deg, #e24, #902);
+}
+
+#nametag {
+  color: #499;
+  font-size: 20px; font-weight: bold;
+  position: absolute;
+  left: 250px;top: -20px;
+}
+
+#field {
+  width: 325px;
+  position: absolute;
+}
+
+#p {
+  background: #39f;
+  border: 2px transparent solid;
+  left: 137px; 
+  top: 77px;
+}
+
+#pAtk {
+  width: 100px; height: 122px;
+  position: absolute;
+  left: -25px; bottom: 0px;
+  transform: rotate(-150deg);
+  left: -75px; bottom: -80px;
+  z-index: 2;
+}
+
+/*----------------Perfetto Elements---------------*/
+
+#per {
+  left: 139px;
+  top: -66px;
+}
+
+#tAtk {
+  position: absolute;
+  width: 220px; height: 220px; 
+  left: -150px; top: -110px;
+  transform: rotate(-20deg);
+}
+
+#Ivy {
+  position: absolute;
+  width: 130px;
+  left: 100px; bottom: 0px;
+  animation: float 4s infinite;
+}
+
+#next {
+  position: absolute;
+  right: 0px; bottom: 0px;
+}
+
+#dialouge {
+  width: 340px; height: 100px;
+  background: #336;
+  color: white;
+  border: solid 2px #343;
+  position: absolute;
+  right: -10px; top: 0px;
+  z-index: 1;
+}
+
+#pTile {
+  position: absolute;
+  right: -65px; top: 0px;
+}
+ 
+/*----------------Trapoid Elements----------------*/
+
+#trapoid {
+  color: transparent;
+  position: absolute;
+  left: 112px; top: -110px;
+  border-left: 55px solid; border-right: 55px solid;
+  border-top: 100px solid #277;/*d25 is red*/
+  z-index: 2;
+  animation: float 4s infinite;
+}
+
+#eye1 {
+  right: 11px; bottom: 58px;
+  width: 14px; height: 15px;
+}
+
+#eye2 {
+  left: 8px;
+}
+
+#pTele {
+  left: -21px; bottom: -50px;
+  position: absolute;
+  opacity: 0;
+  border-radius: 50%;
+  border-left: 20px solid; border-right: 20px solid;
+  border-top: 40px solid #dff;/*d25 is red*/
+}
+
+#brow {
+  width: 28px;
+  right: 3px;
+  height: 1px;
+  background: black;
+  border: 1px black solid;
+  position: absolute;
+  bottom: 75px;
+}
+
+#push {
+  top: -215px;
+  position: absolute;
+  width: 325px; height: 120px;
+  border-radius: 50%;
+  background: #cde;
+  z-index: 1;
+}
+
+#pushT { 
+  top: -32px;
+  position: absolute;
+  border-left: 160px solid transparent; border-right: 160px solid transparent;
+  border-bottom: 100px solid #cde;
+  z-index: 2;
+}
+
+#ball2 {
+  top: 95px;
+}
+
+#ball3 {
+  top: 185px;
+}
+
+#ball5 {
+  top: 140px;
+}
+
+#lText {
+  color: white;
+}
+
+#hint3 {
+  position: absolute;
+  left: 0px; top: 0px;
+}
+
+#container {
+  position: fixed;
+  left: 0px; top: 0px;
+  width: 100%; height: 100%;
+  background: black;
+  z-index: 10;
+}
+
+@keyframes gun {
+  to {height: 150px;visibility: hidden;}
+}
+
+@keyframes float {
+  0%{
+    top: -110px;
+    transform: rotate(7deg);
+  }
+  45%{
+    top: -150px;
+    transform: rotate(-7deg);
+  }
+  100%{
+    top: -110px;
+    transform: rotate(7deg);
+  }
+}
+
+@keyframes float2 {
+  0%{
+    transform: rotate(155deg);
+  }
+  45%{
+    transform: rotate(205deg);
+  }
+  100%{
+    transform: rotate(155deg);
+  }
+}
+
+@keyframes pissed {
+  0%{
+    top: -110px;
+    border-top-color: #277;
+  }
+  100%{
+    top: -135px;
+    border-top-color: #d25;
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes redBack {
+  0%{
+    background: black;
+  }
+  95%{
+    background: rgba(246,91,57,1);
+  }
+  100%{
+    background: rgba(99,13,43,1);
+  }
+}
+
+@keyframes stabTop {
+  0% {
+    filter: blur(7px);
+    top: -15px;
+    opacity: 0.2;
+  }
+  75%{
+    top: -145px;
+    border-top: 35px solid #d45;
+    opacity: 0.5;
+  }
+  95%{
+    top: -30px;
+    border-top: 255px solid red;
+    border-top-color: red;
+    opacity: 0.9;
+  }
+  100%{
+    top: -30px;
+    border-top: 255px solid red;
+  }
+}
